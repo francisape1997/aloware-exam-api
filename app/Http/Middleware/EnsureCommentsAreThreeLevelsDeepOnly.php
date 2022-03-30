@@ -34,22 +34,20 @@ class EnsureCommentsAreThreeLevelsDeepOnly
     {
         $commentLimit = 0;
 
-        $parent = null;
+        $parent = $comment->parent;
+
+        if (!isset($parent)) {
+            return true;
+        }
 
         while ($commentLimit < self::LIMIT) {
 
-            if (isset($parent)) {
+            $commentLimit++;
 
-                $parent = $parent->parent;
+            $parent = $parent->parent;
 
-                $commentLimit++;
-
-                if (!isset($parent)) {
-                    break;
-                }
-
-            } else {
-                $parent = $comment->parent;
+            if (!isset($parent)) {
+                break;
             }
         }
 
