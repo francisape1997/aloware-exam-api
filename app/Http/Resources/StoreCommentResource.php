@@ -11,6 +11,7 @@ class StoreCommentResource extends JsonResource
         return
         [
             'id'          => $this->id,
+            'parent_id'   => $this->parent_id,
             'title'       => $this->title,
             'description' => $this->description,
         ];
