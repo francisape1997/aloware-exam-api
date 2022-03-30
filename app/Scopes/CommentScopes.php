@@ -8,4 +8,9 @@ trait CommentScopes
     {
         return $query->doesntHave('parent')->with('children');
     }
+
+    public function scopeOrderByLatestCreated($query)
+    {
+        return $query->orderBy('created_at', 'DESC');
+    }
 }
