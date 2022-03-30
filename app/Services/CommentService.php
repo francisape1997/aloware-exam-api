@@ -15,7 +15,7 @@ class CommentService
 
     public function getComments()
     {
-        return $this->comment->nestedChildren()->orderBy('created_at', 'DESC')->paginate();
+        return $this->comment->nestedChildren()->orderByLatestCreated()->paginate();
     }
 
     public function storeComment($request)
