@@ -26,6 +26,6 @@ class Comment extends Model
 
     public function children()
     {
-        return $this->hasMany($this, 'parent_id', 'id');
+        return $this->hasMany($this, 'parent_id', 'id')->with('children');
     }
 }
