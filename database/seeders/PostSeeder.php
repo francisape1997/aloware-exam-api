@@ -4,11 +4,15 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
-class DatabaseSeeder extends Seeder
+class PostSeeder extends Seeder
 {
     public function run()
     {
-        $this->call(PostSeeder::class);        
+        DB::table('posts')->insert(
+        [
+            'title' => 'Default Post'
+        ]);
     }
 }
